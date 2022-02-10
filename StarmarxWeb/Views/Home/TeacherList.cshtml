@@ -1,0 +1,51 @@
+﻿@model IEnumerable<StarmarxWeb.ModelsView.TeacherViewModel>
+@{
+    ViewBag.Title = "TeacherList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>TeacherList</h2>
+
+<table id="TblInfo" class="table table-bordered table-striped mt-4">
+    <thead>
+        <tr class="bg-primary text-light">
+            <td>Teacher Name</td>
+            <td>Class</td>
+            <td>Div</td>
+            <td>Mobile No</td>
+            <td>Email ID</td>
+            <td>Action</td>
+        </tr>
+    </thead>
+    <tbody class="InfoTBody">
+        @if (Model.Count() > 0)
+        {
+
+            foreach (var item in Model)
+            {
+
+                <tr>
+                    <td>
+                        @item.TeacherName
+                    </td>
+                    <td>
+                        @item.Class
+                    </td>
+                    <td>
+                        @item.Division
+                    </td>
+                    <td>
+                        @item.MobileNo
+                    </td>
+                    <td>
+                        @item.EmailID
+                    </td>
+                    
+                    <td>
+                        <a class="adEdit n-p">Edit</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

@@ -1,0 +1,33 @@
+﻿
+@model StarmarxWeb.Models.UserModel
+
+@{
+    ViewBag.Title = "Thank you";
+    Layout = "~/Views/Shared/_account.cshtml";
+}
+
+@using (Html.BeginForm("Thankyou", "Account", FormMethod.Post))
+{
+
+    <div class="container">
+        <div class="col-md-4"></div>
+        <div class="col-md-4 login-div">
+            <div class="login-head">Thank You</div>
+
+            <div class="form-group">
+                <p>Dear @Model.Name,</p>
+                <p>Login Details is send to your register email ID @Model.EmailID</p>
+                <p>User name: @Model.EmailID</p>
+                <p>Password: @Model.Password</p>
+            </div>
+
+            <div class="form-group">
+                @Html.ActionLink("Login", "Index", "Account", new { }, null)
+            </div>
+
+        </div>
+
+        <div class="col-md-4"></div>
+    </div>
+
+}

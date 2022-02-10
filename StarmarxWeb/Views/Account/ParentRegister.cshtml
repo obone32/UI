@@ -1,0 +1,62 @@
+﻿
+@model StarmarxWeb.ModelsView.ParentViewModel
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_account.cshtml";
+}
+
+
+@using (Html.BeginForm("ParentRegister", "Account", FormMethod.Post))
+{
+
+    <div class="container">
+        <div class="col-md-4"></div>
+        <div class="col-md-4 login-div">
+            <div class="login-head">Register</div>
+
+
+            <div class="form-group">
+                <label for="text">
+                    Student*
+                    @Html.ValidationMessageFor(model => model.StudentID, "", new { @class = "validation" })
+                </label>
+                @Html.DropDownListFor(model => model.StudentID, new SelectList(ViewBag.DDLClassID, "value", "text", Model.StudentID), "--Select--", new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                <label for="MobileNo">
+                    Parent Name*
+                    @Html.ValidationMessageFor(model => model.ParentGuardianName, "", new { @class = "validation" })
+                </label>
+                @Html.EditorFor(model => model.ParentGuardianName, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+
+            <div class="form-group">
+                <label for="MobileNo">
+                    MobileNo*
+                    @Html.ValidationMessageFor(model => model.MobileNo, "", new { @class = "validation" })
+                </label>
+                @Html.EditorFor(model => model.MobileNo, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+            <div class="form-group">
+                <label for="EmailID">
+                    EmailID*
+                    @Html.ValidationMessageFor(model => model.EmailID, "", new { @class = "validation" })
+                </label>
+                @Html.EditorFor(model => model.EmailID, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary s-p" />
+            </div>
+            <div class="form-group">
+                @Html.ActionLink("Back to Login", "Index", "Account", new { }, null)
+            </div>
+        </div>
+
+        <div class="col-md-4"></div>
+    </div>
+
+}
